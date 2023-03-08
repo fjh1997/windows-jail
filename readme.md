@@ -10,7 +10,7 @@ icacls  d:\ /deny "jail:(OI)(CI)f"
 icacls  c:\ /deny "jail:(OI)(CI)f"
 icacls  e:\ /deny "jail:(OI)(CI)f"
 
-#you can use command below to findout folders not effected by above command.it’s important to note that if the explicit permissions allow access, then the inherited permissions will never be checked.
+#you can use command below to find out folders not effected by inheritance.Also it’s important to note that if the explicit permissions allow access, then the inherited permissions will never be checked.
 
 dir c:\ -Directory -recurse|get-acl|where { $_.AreAccessRulesProtected}|select @{Name="Path" ;Expression={Convert-Path $_.Path}},AreAccessRulesProtected|format-table
 
