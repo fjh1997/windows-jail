@@ -1,5 +1,5 @@
 # windows-jail
-simple windows jail. to simulate runas /trustlevel and /user with pipeline to redirect stdout. just for fun.no guarantee
+simple windows jail. to simulate runas /trustlevel and /user with pipeline to redirect stdout. just for fun.no guarantee.Since once you get shell for windows,you can shutdown or taskkill the process.maybe this project can be used for ctf game as windows pwn environment?
 ```
 # run powershell as admin
 # add user jail
