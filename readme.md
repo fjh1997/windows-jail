@@ -1,5 +1,5 @@
 # windows-jail
-
+simple windows jail. to simulate runas /trustlevel and /user with pipeline to redirect stdout. just for fun.no guarantee
 ```
 # run powershell as admin
 # add user jail
