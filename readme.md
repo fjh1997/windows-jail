@@ -16,7 +16,12 @@ dir c:\ -Directory -recurse|get-acl|where { $_.AreAccessRulesProtected}|select @
 
 # enable jail to read some programs and folders (for example python)
 icacls "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\" /grant "jail:(OI)(CI)(RX)"
-
+# compaile programs to make jail
+git clone https://github.com/fjh1997/windows-jail.git
+cd windows-jail
+msbuild RestrictShutdown.vcxproj
+msbuild runasuser.vcxproj
+cd telegram-evil-bot\bin-v143\x64\Debug
 # run powershell as user jail with restrict permission
 runasuser.exe jail jail  RestrictShutdown.exe  C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
