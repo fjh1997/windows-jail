@@ -16,6 +16,8 @@ dir c:\ -Directory -recurse|get-acl|where { $_.AreAccessRulesProtected}|select @
 
 # enable jail to read some programs and folders (for example python)
 icacls "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\" /grant "jail:(OI)(CI)(RX)"
+icacls "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\" /grant "Users:(OI)(CI)(RX)"
+
 # compaile programs to make jail
 git clone https://github.com/fjh1997/windows-jail.git
 cd windows-jail
