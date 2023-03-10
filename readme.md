@@ -1,7 +1,7 @@
 # windows-jail
 
-run powershell as admin
 ```
+# run powershell as admin
 # add user jail
 net user jail jail /add
 mkdir C:\Users\jail
