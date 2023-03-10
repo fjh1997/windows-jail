@@ -22,7 +22,7 @@ cd windows-jail
 msbuild RestrictShutdown.vcxproj
 msbuild runasuser.vcxproj
 cd telegram-evil-bot\bin-v143\x64\Debug
-# run powershell as user jail with restrict permission
+# run powershell as user jail with restrict permission,abolute path is needed
 runasuser.exe jail jail  RestrictShutdown.exe  C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
 
