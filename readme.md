@@ -17,16 +17,13 @@ dir c:\ -Directory -recurse|get-acl|where { $_.AreAccessRulesProtected}|select @
 # enable jail to read some programs and folders (for example python)
 icacls "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\" /grant "jail:(OI)(CI)(RX)"
 
-# run powershell as user jail
-runas  /user:jail powershell.exe
+# run powershell as user jail with restrict permission
+runasuser.exe jail jail  RestrictShutdown.exe  C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
-in new prompt
-```
-# run program in restrict mode
-runas /trustlevel:0x20000 C:\Users\Administrator\AppData\Local\Programs\Python\Python310\python.exe
-```
+
 ## further works
 
 I was thinking, create a user group, only grant read access to c:, Windows directory and other required folders to this user group, use SetTokenInformation(TokenGroups) to add the sid of this user group to the token of the process, use CreateRestrictedToken(UserGroup ) to restrict the process to this user group, is it simple to achieve the storage isolation of the process. Windows ACL check will check twice, the second time specifically to check if it is in the group being restricted.
 
-[see](https://learn.microsoft.com/en-us/windows/win32/secauthz/restricted-tokens)
+[restricted-tokens](https://learn.microsoft.com/en-us/windows/win32/secauthz/restricted-tokens)
+[safercomputetokenfromlevel](https://learn.microsoft.com/en-us/windows/win32/api/winsafer/nf-winsafer-safercomputetokenfromlevel)
