@@ -158,7 +158,10 @@ void do_test(LPWSTR cmdline)
 	siStartInfo.cb = sizeof(STARTUPINFO);
 	siStartInfo.hStdError = g_hChildStd_OUT_Wr;
 	siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
-	siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
+	// hide window
+	siStartInfo.dwFlags = STARTF_USESTDHANDLES|STARTF_USESHOWWINDOW; 
+	siStartInfo.wShowWindow = SW_HIDE;
+
 
 	PROCESS_INFORMATION procInfo;
 	ZeroMemory(&procInfo, sizeof(PROCESS_INFORMATION));
